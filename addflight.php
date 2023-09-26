@@ -1,4 +1,4 @@
-<<?php
+<?php
 
 include 'config.php';
 
@@ -13,8 +13,6 @@ $fair_business = $_POST['Fair_Business'];
 $Available_seats = $_POST['Available_seats'];
 
 $sql = "INSERT INTO flights(Id, Name, Source, Destination, Departure, Arrival, Fair_Economic, Fair_Business, Available_seats) VALUES ('$id', '$name', '$source', '$destination', '$departure', '$arrival', '$fair_economic', '$fair_business', '$Available_seats')";
-
-
 
 if((!mysqli_query($conn,$sql))){
   echo "Not Added!!!";
@@ -33,6 +31,4 @@ header("Refresh:2; url=welcome.php");
 
 mysqli_close($conn);
 
-
-
- ?>
+?>

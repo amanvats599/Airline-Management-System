@@ -1,4 +1,4 @@
-<<?php
+<?php
 
 include 'config.php';
 
@@ -35,8 +35,7 @@ else {
   $sql2 = "UPDATE flights SET Available_seats='$updated_seats' WHERE Id = $temp";
   mysqli_query($conn,$sql2);
 
-  echo "Flight Canceled Successfully!!!";
-
+  echo "Booking Canceled Successfully!!!";
 }
 
 header("Refresh:2; url=welcome.php");

@@ -77,7 +77,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     text-decoration: none;
     font-size: 25px;
     font-family: sans-serif;
-    //background-image: url("images/cssback.png");
+    /* //background-image: url("images/cssback.png"); */
 
   }
   p{
@@ -126,6 +126,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
   $count = mysqli_num_rows($result);
 
+  // echo $count;
+  // echo "<br>";
+
 
 if ($count == 0) {
   $error = "Flight ID NOT FOUND!!!<br><br>";
@@ -164,8 +167,6 @@ else{
       Business Fair:  <input type="number"  name="Fair_Business" value="<?php echo $row['Fair_Business']; ?>" required></input><br><br>
 
       <input type="submit" value="Update Flight"></input>
-
-
 
     </form>
   </div>

@@ -1,4 +1,4 @@
-
+</head>
 <style>
 table {
   width: 100%;
@@ -74,7 +74,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     text-decoration: none;
     font-size: 25px;
     font-family: sans-serif;
-    //background-image: url("images/cssback.png");
+    /* //background-image: url("images/cssback.png"); */
 
   }
   p{
@@ -93,14 +93,14 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     <li><a href="deleteflight.html">Delete Flight</a></li>
     <li><a href="updateflight.html">Update Flight</a></li>
     <li><a href="cancelbooking.html">Cancel Booking</a></li>
-    <li><a class="active" href="welcome.php">Home</a></li>
-    <li style="float: left; color:white;font-family: sans-serif;font-size: 35px;">IndiGo</li>
+    <li><a class="active" href="welcome.php">Admin Details</a></li>
+    <li style="float: left; color:white;font-family: sans-serif;font-size: 35px;">JetAirways</li>
   </ul>
 
   <p>All Flights:</p><br>
 
 
-  <<?php
+  <?php
 
   include 'config.php';
 
@@ -123,7 +123,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   ?>
 
   <p>All Users:</p><br>
-  <<?php
+  <?php
 
   include 'config.php';
 
@@ -143,6 +143,8 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   mysqli_close($conn);
 
   ?>
+
+
 
 </body>
 </html>

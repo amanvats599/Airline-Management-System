@@ -1,13 +1,9 @@
-<<?php
+<?php
 include 'config.php';
 $sql = "SELECT * FROM cities";
 $result = mysqli_query($conn,$sql);
 $result2 = mysqli_query($conn,$sql);
-
-
- ?>
-
-
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -94,7 +90,7 @@ input[type=submit]:hover {
   <li><a href="admin.html">Admin</a></li>
   <li><a href="contact.html">Contact</a></li>
   <li><a href="about.html">About</a></li>
-  <li style="float: left; color:white;font-family: sans-serif;font-size: 35px;">IndiGo</li>
+  <li style="float: left; color:white;font-family: sans-serif;font-size: 35px;">JetAirways</li>
   <li><a class="active" href="website.php">Home</a></li>
 </ul>
 <div class="wrapper">
@@ -130,8 +126,6 @@ input[type=submit]:hover {
     </select><br><br>
 
   <input type="submit" value="Search Flights"></input>
-
-
 </form>
 </div>
 </body>

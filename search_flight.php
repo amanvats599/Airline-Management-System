@@ -4,14 +4,14 @@ table {
 }
 
 th{
-   height: 50px;
+  height: 50px;
   text-align:center;
   font-size: 15px;
   font-family: sans-serif;
-    padding: 15px;
-    text-align: left;
+  padding: 15px;
+  text-align: left;
   background-color: #4CAF50;
-color: white;
+  color: white;
 }
 
 td {
@@ -83,12 +83,12 @@ body{
 <body>
 
 <ul>
-  <li><a class="active" href="website.php">Home</a></li>
   <!-- <li><a href="signup.html">Sign Up</a></li> -->
   <li><a href="admin.html">Admin</a></li>
   <li><a href="contact.html">Contact</a></li>
   <li><a href="about.html">About</a></li>
-  <li style="float: left; color:white;font-family: sans-serif;font-size: 35px;">IndiGo</li>
+  <li style="float: left; color:white;font-family: sans-serif;font-size: 35px;">JetAirways</li>
+  <li><a class="active" href="website.php">Home</a></li>
 </ul>
 
 
@@ -127,6 +127,14 @@ else {
   $result = mysqli_query($conn,$sql);
 }
 
+// if(mysqli_num_rows($result)==0)
+// {
+//    echo "No flights available<br>";
+// // Wait for 3 seconds and then redirect to "website.php"
+//    header("Refresh:3; url=website.php");
+
+// }
+// else{
 echo"<table border ='1'>";
 echo "<tr><th>Id</th><th>Name</th><th>Source</th><th>Destination</th><th>Fare</th><th>Action</th></tr>";
 if ($trip_class == 'economic') {
@@ -138,30 +146,29 @@ if ($trip_class == 'economic') {
     $id = $row['Id'];
 
   echo "<tr><td>{$row['Id']}</td><td>{$row['Name']}</td><td>{$row['Source']}</td><td>{$row['Destination']}</td><td>{$price}</td><td><form id= \"Passing\" method=\"post\" action=\"book_flight.php\">
-<input name=\"Id\" type=\"hidden\" value=\"$id\">
-<input name=\"price\" type=\"hidden\" value=\"$price\">
-<input name=\"total_passengers\" type=\"hidden\" value=\"$total_passengers\">
-<input name=\"submit\" type=\"submit\" value=\"Book\">
-</form></td></tr>";
-
-    }
-
-  }
-  else {
-    while ($row = mysqli_fetch_assoc($result)) {
-      $price_temp = $row['Fair_Economic']*$adults+0.5*$row['Fair_Economic']*$childrens;
-      $price = $price_temp*2;
-      $id = $row['Id'];
-
-    echo "<tr><td>{$row['Id']}</td><td>{$row['Name']}</td><td>{$row['Source']}</td><td>{$row['Destination']}</td><td>{$price}</td><td><form id= \"Passing\" method=\"post\" action=\"book_flight.php\">
   <input name=\"Id\" type=\"hidden\" value=\"$id\">
   <input name=\"price\" type=\"hidden\" value=\"$price\">
   <input name=\"total_passengers\" type=\"hidden\" value=\"$total_passengers\">
   <input name=\"submit\" type=\"submit\" value=\"Book\">
   </form></td></tr>";
 
-      }
+  }
 
+}
+else {
+    while ($row = mysqli_fetch_assoc($result)) {
+      $price_temp = $row['Fair_Economic']*$adults+0.5*$row['Fair_Economic']*$childrens;
+      $price = $price_temp*2;
+      $id = $row['Id'];
+
+   echo "<tr><td>{$row['Id']}</td><td>{$row['Name']}</td><td>{$row['Source']}</td><td>{$row['Destination']}</td><td>{$price}</td><td><form id= \"Passing\" method=\"post\" action=\"book_flight.php\">
+   <input name=\"Id\" type=\"hidden\" value=\"$id\">
+   <input name=\"price\" type=\"hidden\" value=\"$price\">
+   <input name=\"total_passengers\" type=\"hidden\" value=\"$total_passengers\">
+   <input name=\"submit\" type=\"submit\" value=\"Book\">
+   </form></td></tr>";
+
+    }
   }
 }
 else {
@@ -193,11 +200,21 @@ else {
       }
   }
 }
-echo "</table>";
+  echo "</table>";
+
+// }
+
+if(mysqli_num_rows($result)==0)
+{
+   echo "No flights available<br>";
+// Wait for 3 seconds and then redirect to "website.php"
+   header("Refresh:3; url=website.php");
+
+}
 
 mysqli_close($conn);
 
- ?>
+?>
 
 </body>
 </html>

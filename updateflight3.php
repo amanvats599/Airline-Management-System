@@ -1,4 +1,4 @@
-<<?php
+<?php
 
 include 'config.php';
 
@@ -20,13 +20,9 @@ if((!mysqli_query($conn,$sql))){
 }
 else {
   echo "Flight Updated Successfully!!!";
-
+  header("Refresh:2; url=updateflight.html");
 }
 
-header("Refresh:2; url=updateflight.html");
-
 mysqli_close($conn);
-
-
 
  ?>

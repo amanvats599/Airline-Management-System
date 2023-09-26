@@ -21,11 +21,25 @@ $updated_seats = $row['Available_seats'] - $total_passengers;
 
 $sql = "UPDATE flights SET Available_seats= $updated_seats WHERE Id =$flight_id";
 $result = mysqli_query($conn,$sql);
-echo "Table Updated<br><br>";
+
+$sql = "SELECT LAST_INSERT_ID() as last_id";
+$result = mysqli_query($conn,$sql);
+echo "Your Ticket has been successfully Booked.<br><br>";
+
+// echo"<table border ='1'>";
+// echo "<tr><th>UserId</th><th>FirstName</th><th>LastName</th><th>MobileNo</th><th>Email</th><th>Flight_Id</th><th>Seats_booked</th><th>Total_Cost</th></tr>";
+
+// while ($row = mysqli_fetch_assoc($result)) {
+//   echo "<tr><td>{$row['last_id']}</td><td>{$row['$firstname']}</td><td>{$row['LastName']}</td><td>{$row['MobileNo']}</td><td>{$row['Email']}</td><td>{$row['Flight_Id']}</td><td>{$row['Seats_booked']}</td><td>{$row['Total_Cost']}</td></tr>";
+
+// }
+// echo "</table>";
 
 mysqli_close($conn);
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html>

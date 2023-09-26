@@ -1,4 +1,4 @@
-<<?php
+<?php
 
 include 'config.php';
 
@@ -14,14 +14,11 @@ if((!mysqli_query($conn,$sql1)) or (!mysqli_query($conn,$sql2)) ){
 }
 else {
   echo "Flight Deleted!!!";
-
 }
 
-
+// echo "Flight Deleted!!!";
 header("Refresh:2; url=welcome.php");
 
 mysqli_close($conn);
-
-
 
  ?>
