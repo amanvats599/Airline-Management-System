@@ -1,4 +1,4 @@
-# Airline-Project
+# Airline-Management-System
 Airline Management Project
 
 It is basically a simple implementation of an Airline Management System. 
